@@ -1,0 +1,15 @@
+{
+
+    "autoload" : {
+
+        "psr-4" : {
+
+            "myframew\\" : "vendor/myframew/core/classes"
+          
+
+        }
+    
+    },
+    "require" : {}
+}
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $title ?? 'TITLE' ?></title>
+    <base href="<?= PATH; ?>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/main.css">
+    <link rel="icon" href="assets/img/favicon.ico">
+</head>
+<body>
+
+<div class="wrapper">
+    <header class="header">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="about">About</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="posts/create">New Post</a>
+                        </li>
+                    </ul>
+
+                    <ul class="d-flex text-white align-items-center list-unstyled m-0 gap-3  ms-auto">
+                    <?php if(check_auth()): ?>
+
+                        <li><?= $_SESSION['user']['name'] ?></li>
+                        <li><a class="nav-link" href="logout">Logout</a></li>
+                    </ul>
+                    <?php else: ?>
+                        <li><a class="nav-link" href="login">Login</a></li>
+                        <li><a class="nav-link" href="register">Register</a></li>
+                        <?php endif; ?>
+                </div>
+            </div>
+        </nav>
+
+               <?php getAlerts(); ?>
+
+    </header>
+
+
+ 
