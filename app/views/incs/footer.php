@@ -1,6 +1,6 @@
    <footer class="footer">
         <div class="p-3 text-bg-dark text-center">
-            <p>&copy;Coopyright<?= date('Y') ?></p>
+            <p>&copy;Coopyright <?= date('Y') ?></p>
         </div>
     </footer>
 </div>

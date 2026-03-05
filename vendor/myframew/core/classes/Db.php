@@ -61,6 +61,9 @@ class Db {
                 
         }catch(PDOException $e){
 
+        error_log("[" . date("Y-m-d, H:i:s"). "] Db Error:{$e->getMessage()} ". PHP_EOL, 3, ERRORS_FILE);
+
+
             return false;
 
         }
@@ -97,6 +100,15 @@ class Db {
     public function getColumn()
     {
         return $this->stmt->fetchColumn();
+    }
+
+
+    public function get_user_id()
+    {
+
+       return $this->connect->lastInsertId();
+
+
     }
 
 

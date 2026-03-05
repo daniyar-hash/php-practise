@@ -14,7 +14,7 @@
           
                 <h1>New post</h1>
 
-                <form action="/posts" method="post" >
+                <form action="/posts" method="post">
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
@@ -27,10 +27,7 @@
                     <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
                         <input type="text" class="form-control" id="content" name="content" value="<?= old('content'); ?>">
-                    
                         <?= isset($validation) ? $validation->listErrors('content') : "" ?>
-
-
                     </div>
                     <div class="mb-3">
                         <label for="excerpt" class="form-label">Excerpt</label>

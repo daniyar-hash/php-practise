@@ -7,8 +7,10 @@ class Guest
 
     public function handle()
     {
+    
          if(check_auth()){
-            redirect('/');
+       
+            redirect(PATH);
         }
     }
 

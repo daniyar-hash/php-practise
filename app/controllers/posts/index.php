@@ -6,6 +6,9 @@ error_reporting(E_ALL);
 
 // $db = \myframew\App::get(\myframew\Db::class);
 
+
+
+
 $title = 'Page:Home';
 
 $total = db()->query("select COUNT(*) from posts")->getColumn();

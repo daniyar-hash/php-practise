@@ -34,8 +34,11 @@
 
                     <ul class="d-flex text-white align-items-center list-unstyled m-0 gap-3  ms-auto">
                     <?php if(check_auth()): ?>
-
-                        <li><?= $_SESSION['user']['name'] ?></li>
+                      
+                        <li>
+                            <img src="<?= $_SESSION['user']['avatar'] ?>" alt="avatar" style="max-height:50px; border-radius:50% ">
+                            <?= $_SESSION['user']['name'] ?>
+                        </li>
                         <li><a class="nav-link" href="logout">Logout</a></li>
                     </ul>
                     <?php else: ?>

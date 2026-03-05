@@ -1,14 +1,23 @@
 <?php 
 
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
+
 use myframew\Validator;
 
 $db = \myframew\App::get(\myframew\Db::class);
 
 
-$failable = ["title", "excerpt", "content", "email"];
+$failable = ["title", "excerpt", "content"];
 
 $data = load($failable);
+
+// dump($data);
 
 
 $validate = new Validator();
@@ -45,13 +54,20 @@ $validation = $validate->validate($data, [
     ]);
 
 
-    if(!$validation->hasError()){
-    //    print_arr($validation->getError());
 
-        if($db->query("insert  into `posts`(`title`, `excerpt`, `content`) values( :title, :excerpt, :content) ",
+    // print_arr($validation->getError());
+
+    if(!$validation->hasError()){
+
+
+         $data['slug'] = strtolower(preg_replace('/\s+/', '-', $data['title']));
+
+        
+        if($db->query("insert  into `posts`(`title`, `excerpt`, `content`, `slug`) values( :title, :excerpt, :content, :slug) ",
         $data))
         
         {
+
           $_SESSION['success'] = "ok";
         }
         else{
@@ -59,7 +75,9 @@ $validation = $validate->validate($data, [
         }
 
         redirect('/');
-      }else {
+      }
+      
+      else {
 
         require VIEWS .'/posts/create.tpl.php';
 

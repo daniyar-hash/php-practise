@@ -11,8 +11,6 @@ $post = ' <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam 
 $recent_posts =  $db->query("SELECT * from posts order by id DESC LIMIT 3")->findAll();
 
 
-
-
 require_once VIEWS . '/about.tpl.php';
 
 

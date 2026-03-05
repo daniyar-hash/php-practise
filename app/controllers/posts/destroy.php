@@ -7,6 +7,7 @@ $api_data = json_decode(file_get_contents('php://input'),true);
 
 $data = $api_data ?? $_POST;
 
+
 $id = $data['id'] ?? 0;
 
 $db->query('delete from posts where id = ?' , [$id]);

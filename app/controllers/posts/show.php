@@ -1,10 +1,26 @@
 <?php 
 
+
+
+
+
+
+
+
+
+
+
 $db = \myframew\App::get(\myframew\Db::class);
 
-$id = $_GET['id'] ?? 0;
+$slug = getParam('slug');
 
-$post =  $db->query("SELECT * from posts where id = ? LIMIT 1", [$id])->findOrFail();
+// dump(getParam('slug'));
+
+// $id = $_GET['id'] ?? 0;
+
+// die;
+
+$post =  $db->query("SELECT * from posts where slug = ? LIMIT 1", [$slug])->findOrFail();
 
 
 $title = "Page: {$post['title']}";
